@@ -34,13 +34,11 @@ class DataLoader(object):
     def getVerses(self, chapters, startChapter=1, endChapter=None):
         verses = None
         if endChapter:
-            print(endChapter)
             verses = chapters[int(startChapter) - 1: int(endChapter)]
         else:
             for c in chapters:
                 if c['ChapterId'] == int(startChapter) :
                     verses = c['ChapterVerses']
                     break
-        print(startChapter)
         return verses
 

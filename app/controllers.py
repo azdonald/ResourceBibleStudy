@@ -35,5 +35,7 @@ class BibleReading(Resource):
     def post(self):
         params = request.get_json()
         book = params['book']
+        startChapter = params['start'] if 'start' in params else 1
+        endChapter = params['end'] if 'end' in params else None
         bibleData = DataLoader()
-        return jsonify(bibleData.getReading(book))
+        return jsonify(bibleData.getReading(book, startChapter, endChapter))
